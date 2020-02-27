@@ -19,7 +19,6 @@ namespace Task4
                 {
                     for (int k = n - 1; k > j; k--) Console.Write(" ");
                     for (int k = 0; k < (j*2)-1; k++) Console.Write("*");
-                    //for (int k = 1; k < j; k++) Console.Write("*");
                     Console.WriteLine();
                 }
             }
