@@ -13,7 +13,23 @@ namespace Task3
             protected double a;
             protected double b;
             protected double c;
+            public double A
+            {
+                set { if (value >= 0) a = value; else throw new ArgumentOutOfRangeException(); }
+                get { return a; }
+            }
+            public double B
+            {
+                set { if (value >= 0) b = value; else throw new ArgumentOutOfRangeException(); }
+                get { return a; }
+            }
+            public double C
+            {
+                set { if (value >= 0) c = value; else throw new ArgumentOutOfRangeException(); }
+                get { return a; }
+            }
 
+            /*
             public void setA(double a) { this.a = a; }
             public void setB(double b) { this.b = b; }
             public void setC(double c) { this.c = c; }
@@ -21,12 +37,13 @@ namespace Task3
             public double getA() { return a; }
             public double getB() { return b; }
             public double getC() { return c; }
+            */
 
-            public double getPerimeter() { return a + b + c; }
-            public double getSquare() { return a + (b + c) / 2; }
+            public double getPerimeter() { return A + B + C; }
+            public double getSquare() { return A + (B + C) / 2; }
 
-            public Triangle() { a = 0; b = 0; c = 0; }
-            public Triangle(double a, double b, double c) { this.a = a; this.b = b; this.c = c; }
+            public Triangle() { A = 0; B = 0; C = 0; }
+            public Triangle(double a, double b, double c) { this.A = a; this.B = b; this.C = c; }
             public override string ToString()
             {
                 return a + "; " + b + "; " + c;
@@ -43,6 +60,8 @@ namespace Task3
 
             for (int i = 0; i < n; i++) Console.WriteLine("Длины сторон: {0}. Периметр: {1}. Площадь: {2}.", mas[i], mas[i].getPerimeter(), mas[i].getSquare());
             Console.ReadKey();
+
+            Triangle triangle = new Triangle(-2, 1, 4);
         }
     }
 }

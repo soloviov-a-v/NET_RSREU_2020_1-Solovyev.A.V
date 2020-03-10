@@ -14,21 +14,21 @@ namespace Task1
             protected string Name;
             protected string Patronymic;
             protected DateTime BirthDate;
-            protected int Vozr;
+            protected int Age;
 
             public void setSurname(string Surname) { this.Surname = Surname; }
             public void setName(string Name) { this.Name = Name; }
             public void setPatronymic(string Patronymic) { this.Patronymic = Patronymic; }
             public void setBirthDate(DateTime BirthDate) { this.BirthDate = BirthDate; this.calculateVozr(); }
             public void calculateVozr() { 
-                this.Vozr = DateTime.Now.Year - this.BirthDate.Year; 
+                this.Age = DateTime.Now.Year - this.BirthDate.Year; 
             }
 
             public string getSurname() { return Surname; }
             public string getName() { return Name; }
             public string getPatronymic() { return Patronymic; }
             public DateTime getBirthDate() { return BirthDate; }
-            public int getVozr() { return Vozr; }
+            public int getVozr() { return Age; }
 
             public User(string Surname, string Name, string Patronymic, DateTime BirthDate)
             {

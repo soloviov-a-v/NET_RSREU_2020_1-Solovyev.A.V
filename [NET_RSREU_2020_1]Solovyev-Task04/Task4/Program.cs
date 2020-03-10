@@ -15,14 +15,14 @@ namespace Task4
             StringBuilder sb = new StringBuilder("");
             Stopwatch w = new Stopwatch();
             w.Start();
-            for (int i = 0; i < 100000; i++) str += "+";
+            for (int i = 0; i < 10; i++) str += "+";
             w.Stop();
-            Console.WriteLine("string: {0}", w.ElapsedMilliseconds.ToString());
+            Console.WriteLine("string: {0}", w.ElapsedTicks.ToString());
             w.Reset();
             w.Start();
-            for (int i = 0; i < 100000; i++) sb.Append("+");
+            for (int i = 0; i < 10; i++) sb.Append("+");
             w.Stop();
-            Console.WriteLine("StringBuilder: {0}", w.ElapsedMilliseconds.ToString());
+            Console.WriteLine("StringBuilder: {0}", w.ElapsedTicks.ToString());
             Console.ReadKey();
         }
     }
