@@ -25,8 +25,17 @@ namespace Task2
             }
             public double rad
             {
-                get { return Rad; }
-                set { if (value >= 0) Rad = value; else throw new ArgumentOutOfRangeException(); }
+                get 
+                { 
+                    return Rad;
+                }
+                set 
+                { 
+                    if (value >= 0) 
+                        Rad = value; 
+                    else
+                        throw new ArgumentOutOfRangeException(); 
+                }
             }
             public double length
             {

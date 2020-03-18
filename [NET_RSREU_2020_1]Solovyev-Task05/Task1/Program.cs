@@ -19,8 +19,8 @@ namespace Task1
             public void setSurname(string Surname) { this.Surname = Surname; }
             public void setName(string Name) { this.Name = Name; }
             public void setPatronymic(string Patronymic) { this.Patronymic = Patronymic; }
-            public void setBirthDate(DateTime BirthDate) { this.BirthDate = BirthDate; this.calculateVozr(); }
-            public void calculateVozr() { 
+            public void setBirthDate(DateTime BirthDate) { this.BirthDate = BirthDate; this.calculateAge(); }
+            public void calculateAge() { 
                 this.Age = DateTime.Now.Year - this.BirthDate.Year; 
             }
 
@@ -28,7 +28,7 @@ namespace Task1
             public string getName() { return Name; }
             public string getPatronymic() { return Patronymic; }
             public DateTime getBirthDate() { return BirthDate; }
-            public int getVozr() { return Age; }
+            public int getAge() { return Age; }
 
             public User(string Surname, string Name, string Patronymic, DateTime BirthDate)
             {

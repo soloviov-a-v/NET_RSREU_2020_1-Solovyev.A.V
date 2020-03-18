@@ -50,9 +50,25 @@ namespace Task02
         public class Ring : Round
         {
             protected double InternalRad;
+            protected new double Rad;
+            public new double rad
+            {
+                get { return Rad; }
+                set 
+                { 
+                    if (value >= 0 && (internalRad == 0 || value >= internalRad)) 
+                        Rad = value; 
+                    else 
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
             public double internalRad
             {
-                set { if (value >= 0 && value <= rad) InternalRad = value; else throw new ArgumentOutOfRangeException(); }
+                set { 
+                    if (value >= 0 && value <= rad) 
+                        InternalRad = value; 
+                    else 
+                        throw new ArgumentOutOfRangeException(); }
                 get { return InternalRad; }
             }
             public double sumLength
@@ -78,15 +94,16 @@ namespace Task02
         static void Main(string[] args)
         {
             int n = 4;
-            Round[] mas = new Round[n];
+            Round[] mas = new Ring[n];
             mas[0] = new Ring();
             mas[1] = new Ring(3, 4, 5, 4.5);
             mas[2] = new Ring(7, 2, 3.14, 2.28);
+            mas[2].rad = 1.0;
 
             for (int i = 0; i < n; i++) Console.WriteLine(mas[i]);
             Console.ReadKey();
 
-            Round round = new Round(2, 2, -0.001);
+            //Round round = new Round(2, 2, -0.001);
         }
     }
 }

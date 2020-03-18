@@ -15,32 +15,59 @@ namespace Task3
             protected double c;
             public double A
             {
-                set { if (value >= 0) a = value; else throw new ArgumentOutOfRangeException(); }
-                get { return a; }
+                set 
+                { 
+                    if (b == 0 || c == 0 || b + c > value) 
+                        a = value; 
+                    else 
+                        throw new ArgumentOutOfRangeException(); 
+                }
+                get 
+                {
+                    return a; 
+                }
             }
             public double B
             {
-                set { if (value >= 0) b = value; else throw new ArgumentOutOfRangeException(); }
-                get { return a; }
+                set
+                {
+                    if (a == 0 || c == 0 || a + c > value)
+                        b = value;
+                    else
+                        throw new ArgumentOutOfRangeException();
+                }
+                get 
+                {
+                    return b; 
+                }
             }
             public double C
             {
-                set { if (value >= 0) c = value; else throw new ArgumentOutOfRangeException(); }
-                get { return a; }
+                set
+                {
+                    if (a == 0 || b == 0 || a + b > value)
+                        c = value;
+                    else
+                        throw new ArgumentOutOfRangeException();
+                }
+                get 
+                { 
+                    return c; 
+                }
             }
 
-            /*
-            public void setA(double a) { this.a = a; }
-            public void setB(double b) { this.b = b; }
-            public void setC(double c) { this.c = c; }
-
-            public double getA() { return a; }
-            public double getB() { return b; }
-            public double getC() { return c; }
-            */
-
-            public double getPerimeter() { return A + B + C; }
-            public double getSquare() { return A + (B + C) / 2; }
+            public double getPerimeter() 
+            {
+                if (a == 0 || b == 0 || c == 0)
+                    return 0;
+                return A + B + C; 
+            }
+            public double getSquare() 
+            {
+                if (a == 0 || b == 0 || c == 0)
+                    return 0;
+                return A + (B + C) / 2; 
+            }
 
             public Triangle() { A = 0; B = 0; C = 0; }
             public Triangle(double a, double b, double c) { this.A = a; this.B = b; this.C = c; }
