@@ -8,7 +8,7 @@ namespace Task4
 {
     class Program
     {
-        class Object
+        class GameObject
         {
             protected int x, y;
             protected string name;
@@ -35,9 +35,9 @@ namespace Task4
             }
             public int FieldWidth = 300;
             public int FieldHeight = 200;
-            public Object() { }
+            public GameObject() { }
         }
-        class MovableObject : Object
+        class MovableObject : GameObject
         {
             public MovableObject() { }
             public virtual void Move(int deltaX, int deltaY) 
@@ -102,6 +102,46 @@ namespace Task4
             {
                 Random r = new Random();
                 this.Move(r.Next(0, 5), r.Next(0, 5));
+            }
+        }
+        class Bonus : GameObject
+        {
+            public enum TypeOfBonus
+            {
+                health, power, invisibility, death
+            }
+
+            protected int bonusValue;
+            protected TypeOfBonus bonusType;
+            public int BonusValue
+            {
+                get { return bonusValue; }
+                set { bonusValue = value; }
+            }
+            public TypeOfBonus BonusType
+            {
+                get { return bonusType; }
+                set { bonusType = value; }
+            }
+        }
+        class Apple : Bonus
+        {
+            public Apple(int x, int y) : base()
+            {
+                X = x;
+                Y = y;
+                BonusType = TypeOfBonus.health;
+                BonusValue = 30;
+            }
+        }
+        class Chery : Bonus
+        {
+            public Chery(int x, int y) : base()
+            {
+                X = x;
+                Y = y;
+                BonusType = TypeOfBonus.power;
+                BonusValue = 30;
             }
         }
         static void Main(string[] args)

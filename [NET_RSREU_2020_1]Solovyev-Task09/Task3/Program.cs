@@ -11,10 +11,9 @@ namespace Task3
     {
         static void Main(string[] args)
         {
+            // добвить словарь
             string text = "Hello world! Hello guys! Hi all! How are you guys?";
             Console.WriteLine(text);
-            //Regex reg = new Regex(@"[\W|\W\s]");
-            //string[] word_mas = Regex.Split(text, @"[\W|\W\s|\s]");
             List<string> words = new List<string>(Regex.Split(text, @"[\W|\W\s|\s]"));
             List<int> wordsCount = new List<int>();
             for (int k = 0; k < words.Count; k++) words[k].ToUpper();
@@ -24,7 +23,6 @@ namespace Task3
             {
                 for (int j = i + 1; j < words.Count; j++)
                 {
-                    if (string.IsNullOrEmpty(words[j])) continue;
                     if (string.Compare(words[i], words[j], false) == 0)
                     {
                         words.RemoveAt(j);

@@ -122,7 +122,7 @@ namespace Task2
                 Console.WriteLine(array[i]);
             Console.WriteLine();
         }
-        public void Reset() { index = -1; }
+        public void Reset() { index = 0; }
         public void Next() { index++; }
         public T Current() { return array[index]; }
     }
@@ -130,30 +130,6 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            /*
-            DynamicArray<int> arr = new DynamicArray<int>(1);
-            arr.Add(1);
-            arr.Add(2);
-            arr.PrintArray();
-            int[] number = new int[] { 1, 2, 3, 4, 5, 12 };
-            arr.AddRange(number);
-            arr.PrintArray();
-
-            if (arr.Remove(6)) Console.WriteLine("Элемент удален"); else Console.WriteLine("Элемент не удален");
-            arr.PrintArray();
-
-            try
-            {
-                arr.Insert(8, 5);
-                arr.PrintArray();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            Console.WriteLine("Третий элемент массива: " + arr[2]);
-            Console.WriteLine();
-            */
 
             List<int> numList = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
             DynamicArray<int> arr1 = new DynamicArray<int>(numList);
@@ -161,7 +137,14 @@ namespace Task2
             Console.WriteLine("Текущий элемент " + arr1.Current());
             arr1.Next();
             Console.WriteLine("Текущий элемент " + arr1.Current());
+            
+            /*
+            foreach (var s in arr1)
+            {
+                Console.WriteLine(s.ToString());
+            }
             Console.ReadLine();
+            */
         }
     }
 }

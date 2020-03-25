@@ -17,20 +17,17 @@ namespace Task1
                 foreach (T element in list)
                 {
                     if (check) secondList.Remove(element);
-                    //secondList.Clear();
-                    if (check == false)
-                    {
-                        ///secondList.Add(element);
+                    check = !check;
+                    /*if (check == false)
                         check = true;
-                    }
                     else
-                        check = false;
+                        check = false;*/
                 }
                 list = new List<T>(secondList) as ICollection<T>;
             }
             ;
         }
-        static string allElements<T>(ICollection<T> list)
+        static string AllElements<T>(ICollection<T> list)
         {
             StringBuilder str = new StringBuilder();
             foreach (T element in list) str.Append(element.ToString() + " ");
@@ -40,12 +37,12 @@ namespace Task1
         {
             ICollection<string> list = new List<string>() { "Артем", "Боря", "Вова", "Глеб" , "Данил", "Евгений", "Жора", "Захар" };
             ICollection<string> linkedList = new LinkedList<string>(list);
-            Console.WriteLine("List: " + allElements(list));
-            Console.WriteLine("LinkedList: " + allElements(linkedList));
+            Console.WriteLine("List: " + AllElements(list));
+            Console.WriteLine("LinkedList: " + AllElements(linkedList));
             RemoveEachSecondItem(ref list);
             RemoveEachSecondItem(ref linkedList);
-            Console.WriteLine("Оставшийся элемент в List: " + allElements(list));
-            Console.Write("Оставшийся элемент в LinkedList: " + allElements(linkedList));
+            Console.WriteLine("Оставшийся элемент в List: " + AllElements(list));
+            Console.Write("Оставшийся элемент в LinkedList: " + AllElements(linkedList));
             Console.ReadKey();
         }
     }
