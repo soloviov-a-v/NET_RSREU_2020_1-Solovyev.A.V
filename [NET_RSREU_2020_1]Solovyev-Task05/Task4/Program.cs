@@ -66,15 +66,16 @@ namespace Task4
             }
             public static bool operator ==(AdvancedString a, AdvancedString b)
             {
+                if (a is null && b is null) return true;
+                if (a is null) return false;
+                if (b is null) return false;
                 if (a.Length != b.Length) return false;
                 for (int i = 0; i < a.Length; i++) if (a.str[i] != b.str[i]) return false;
                 return true;
             }
             public static bool operator !=(AdvancedString a, AdvancedString b)
             {
-                if (a.Length != b.Length) return true;
-                for (int i = 0; i < a.Length; i++) if (a.str[i] != b.str[i]) return true;
-                return false;
+                return !(a==b);
             }
             public override string ToString()
             {
@@ -85,7 +86,7 @@ namespace Task4
         }
         static void Main(string[] args)
         {
-            AdvancedString advs1 = new AdvancedString("пажилой");
+           /* AdvancedString advs1 = new AdvancedString("пажилой");
             advs1 += " крол";
             Console.WriteLine(advs1);
 
@@ -94,7 +95,15 @@ namespace Task4
             Console.WriteLine(advs2);
 
             if (advs1 == advs2) Console.WriteLine("Строки равны"); else Console.WriteLine("Строки не равны");
+            */
+            AdvancedString a = new AdvancedString("");
+            if (a == null) 
+                Console.WriteLine("true"); 
+            else 
+                Console.WriteLine("false");
+
             Console.ReadKey();
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +15,13 @@ namespace Task2
         private int index;
         public int Capasity
         {
-            get
-            { return array.Length; }
-            set
-            { capasity = value; }
+            get { return array.Length; }
+            set { capasity = value; }
         }
         public int Length
         {
-            get
-            { return length; }
-            set
-            { length = value; }
+            get { return length; }
+            set { length = value; }
         }
         public DynamicArray()
         {
@@ -61,15 +58,7 @@ namespace Task2
             array = newArray;
             Capasity *= 2;
         }
-        public void Add(T element)
-        {
-            //if (Length + 1 > Capasity) Resize();
-
-            //array[Length] = element;
-            //Length++;
-
-            Insert(element, Length);
-        }
+        public void Add(T element) { Insert(element, Length); }
         public void AddRange(T[] myArray)
         {
             while (Length + myArray.Length > Capasity) Resize();
@@ -125,6 +114,13 @@ namespace Task2
         public void Reset() { index = 0; }
         public void Next() { index++; }
         public T Current() { return array[index]; }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i=0; i<length; i++)
+            {
+                yield return array[i];
+            }
+        }
     }
     class Program
     {
@@ -133,18 +129,18 @@ namespace Task2
 
             List<int> numList = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
             DynamicArray<int> arr1 = new DynamicArray<int>(numList);
-            arr1.PrintArray();
+
+            Console.WriteLine("Выводим массив: ");
+            foreach (var s in arr1) { Console.WriteLine(s.ToString()); }
+
+            //arr1.PrintArray();
             Console.WriteLine("Текущий элемент " + arr1.Current());
             arr1.Next();
             Console.WriteLine("Текущий элемент " + arr1.Current());
             
-            /*
-            foreach (var s in arr1)
-            {
-                Console.WriteLine(s.ToString());
-            }
-            Console.ReadLine();
-            */
+            
+            //foreach (var s in arr1) { Console.WriteLine(s.ToString()); }
+            Console.ReadKey();
         }
     }
 }

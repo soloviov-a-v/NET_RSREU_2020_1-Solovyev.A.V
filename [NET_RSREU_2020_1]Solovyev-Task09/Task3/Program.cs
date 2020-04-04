@@ -11,33 +11,29 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            // добвить словарь
-            string text = "Hello world! Hello guys! Hi all! How are you guys?";
+            string text = "Hello world! hello guys! Hi all! How are you guys?";
             Console.WriteLine(text);
+
+            //Dictionary<string, int> wordsAndTheirsCount = new Dictionary<string, int>();
+
             List<string> words = new List<string>(Regex.Split(text, @"[\W|\W\s|\s]"));
-            List<int> wordsCount = new List<int>();
-            for (int k = 0; k < words.Count; k++) words[k].ToUpper();
-            ;
-            int count = 0;
-            for (int i = 0; i < words.Count; i++)
+            Dictionary<string, int> wordsAndTheirsCount = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (string word in words)
             {
-                for (int j = i + 1; j < words.Count; j++)
-                {
-                    if (string.Compare(words[i], words[j], false) == 0)
-                    {
-                        words.RemoveAt(j);
-                        count++;
-                    }
-                }
-                wordsCount.Add(count);
-                count = 0;
+                if (string.IsNullOrEmpty(word)) continue;
+                //int i;
+                if (wordsAndTheirsCount.ContainsKey(word)) 
+                    wordsAndTheirsCount[word]++;
+                else 
+                    wordsAndTheirsCount.Add(word, 1);
             }
-            for (int i = 0; i < words.Count; i++)
+
+            foreach (KeyValuePair<string, int> pair in wordsAndTheirsCount)
             {
-                if (string.IsNullOrEmpty(words[i])) continue;
-                Console.WriteLine("Слово {0} встречается {1} раз", words[i], wordsCount[i] + 1);
+                Console.WriteLine("Слово {0} встречается {1} раз", pair.Key, pair.Value);
             }
-                
+
             Console.ReadLine();
         }
     }

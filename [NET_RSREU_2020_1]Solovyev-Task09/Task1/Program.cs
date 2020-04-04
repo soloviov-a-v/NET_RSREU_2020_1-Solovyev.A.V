@@ -18,10 +18,6 @@ namespace Task1
                 {
                     if (check) secondList.Remove(element);
                     check = !check;
-                    /*if (check == false)
-                        check = true;
-                    else
-                        check = false;*/
                 }
                 list = new List<T>(secondList) as ICollection<T>;
             }
